@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 218 48% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 47% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 47% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 191 100% 50%;
+    --primary-foreground: 220 47% 15%;
+
+    --secondary: 217 35% 28%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 35% 20%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 191 100% 50%;
+    --accent-foreground: 220 47% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 35% 25%;
+    --input: 217 35% 25%;
+    --ring: 191 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 35% 28%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 35% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 35% 25%;
+    --input: 217 35% 25%;
+    --ring: 224 76% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .cyber-glow {
+    text-shadow: 0 0 5px theme('colors.cyber.accent'), 
+                 0 0 15px theme('colors.cyber.accent');
+  }
+  
+  .section-heading {
+    @apply text-3xl font-bold mb-6 md:text-4xl lg:text-5xl bg-gradient-to-r from-cyber-accent to-blue-400 bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyber-accent/20;
+  }
+}
+
+/* Matrix Rain Animation for HackLoader */
+@keyframes matrix-drop {
+  0% {
+    top: -120px;
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 180px;
+    opacity: 0;
+  }
+}
+.animate-matrix-drop {
+  animation: matrix-drop 1.2s linear infinite;
+}
+
+/* You can add a little glow for hacking feel */
+.text-cyber-accent {
+  text-shadow: 0 0 8px #00c2ffdd, 0 0 22px #00c2ff99;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation for sections using Tailwind */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.3,0.6,0.3,1) both;
+}
